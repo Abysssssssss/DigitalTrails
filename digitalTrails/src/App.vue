@@ -13,9 +13,9 @@ import PanelMenu from './components/PanelMenu.vue'
 	</header>
 
 	<main>
-		<HistoryPart />
+		<!-- <HistoryPart /> -->
 		<QrDecoder />
-		<MainPart />
+		<!-- <MainPart /> -->
 	</main>
 
 	<footer></footer>
