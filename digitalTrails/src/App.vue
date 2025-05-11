@@ -1,25 +1,36 @@
 <script setup>
+import { shallowRef, markRaw } from 'vue'
 import MainPart from './components/MainPart.vue'
 import HistoryPart from './components/HistoryPart.vue'
 import ThemeSwitcher from './components/ThemeSwitcher.vue'
 import QrDecoder from './components/QrDecoder.vue'
 import PanelMenu from './components/PanelMenu.vue'
+import SettingsPart from './components/SettingsPart.vue'
+import AboutPart from './components/AboutPart.vue'
+
+const components = markRaw({
+	MainPart,
+	HistoryPart,
+	AboutPart,
+	SettingsPart,
+})
+
+const activeComponent = shallowRef(components.MainPart)
 </script>
 
 <template>
 	<header>
-		<p id="app_header-text">ПАВЛОВСКИЙ</p>
 		<ThemeSwitcher />
 	</header>
 
 	<main>
-		<HistoryPart />
-		<QrDecoder />
-		<MainPart />
+		<component :is="activeComponent" />
 	</main>
 
 	<footer>
-		<PanelMenu />
+		<PanelMenu
+			@navigate="componentName => (activeComponent = components[componentName])"
+		/>
 	</footer>
 </template>
 
