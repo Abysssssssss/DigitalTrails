@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+:root {
+	--text-font-family: 'Nunito', sans-serif;
+	--text-font-optical-sizing: auto;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: var(--bg-color);
+	color: var(--text-color);
+}
+
+main {
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+header {
+	height: 50px;
+	display: flex;
+	justify-content: space-between;
+}
+
+#app_header-text {
+	text-align: center;
+	width: 100%;
+	font-family: var(--text-font-family);
+	font-weight: 500;
+	font-style: normal;
+}

@@ -1,0 +1,32 @@
+.qr-scanner {
+	max-width: 600px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.scan-overlay {
+	position: absolute;
+	width: 80%;
+	height: 200px;
+	border: 3px solid #4caf50;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: rgba(0, 0, 0, 0.3);
+}
+
+.error {
+	color: red;
+	margin: 20px 0;
+}
+
+.start-button {
+	padding: 10px 20px;
+	margin-left: 50% - 20px;
+	background: #4caf50;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-top: 20px;
+}

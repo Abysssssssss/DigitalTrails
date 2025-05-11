@@ -1,0 +1,8 @@
+[data-theme='light'] {
+	--bg-color-switcher: rgb(209, 209, 209);
+	--bg-color: #adadad;
+	--text-color: #333333;
+	--primary-color: #609632;
+	--second-color: #8a9a5b;
+	--header-bg: #f5f5f5;
+}

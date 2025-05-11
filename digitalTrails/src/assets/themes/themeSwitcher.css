@@ -1,0 +1,21 @@
+.theme_switcher {
+	background: var(--bg-color-switcher);
+	color: var(--text-color);
+	border: none;
+	top: 0;
+	padding: 8px 8px 10px 6px;
+	border-radius: 0px 0px 0px 30px;
+	cursor: pointer;
+	height: 30px;
+	right: 0;
+	position: absolute;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+}
+
+#theme_switcher_span {
+	top: -20%;
+	left: 30%;
+	position: relative;
+}
