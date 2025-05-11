@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
 :root {
 	--text-font-family: 'Nunito', sans-serif;
 	--text-font-optical-sizing: auto;
@@ -21,6 +27,14 @@ header {
 	height: 50px;
 	display: flex;
 	justify-content: space-between;
+}
+
+footer {
+	bottom: 0;
+	position: fixed;
+	display: flex;
+	width: 100%;
+	height: 5%;
 }
 
 #app_header-text {

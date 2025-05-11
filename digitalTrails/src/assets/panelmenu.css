@@ -1,0 +1,21 @@
+.panelMenu_block {
+	display: inline-flex;
+	width: 100%;
+	font-family: var(--text-font-family);
+	font-size: 15px;
+	border-top: 0.4px solid var(--border-color);
+	border-radius: 20px 0px 20px 0px;
+}
+
+#panelMenu_block_li {
+	text-align: center;
+	height: 100%;
+	width: 25%;
+	cursor: pointer;
+	top: 50%;
+	transition: 100ms;
+}
+
+#panelMenu_block_li:hover {
+	background-color: var(--bg-color-switcher);
+}

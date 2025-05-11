@@ -18,7 +18,9 @@ import PanelMenu from './components/PanelMenu.vue'
 		<MainPart />
 	</main>
 
-	<footer></footer>
+	<footer>
+		<PanelMenu />
+	</footer>
 </template>
 
 <script></script>
