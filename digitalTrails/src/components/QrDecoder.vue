@@ -44,9 +44,11 @@ export default {
 		},
 
 		onDetect(detectedCodes) {
+			const qrCodeInfo = detectedCodes[0].rawValue
 			if (detectedCodes.length > 0) {
 				this.result = detectedCodes[0].rawValue
-				this.paused = true // Останавливаем сканирование
+				this.paused = true
+				console.log(qrCodeInfo, typeof qrCodeInfo)
 			}
 		},
 
