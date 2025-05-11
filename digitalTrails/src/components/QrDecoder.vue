@@ -1,13 +1,31 @@
 <template>
 	<div class="qrDecoder_cameraBlock">
-		<qrcode-stream @detect="onDetect" :paused="paused" v-if="hasCameraAccess">
+		<qrcode-stream
+			@detect="onDetect"
+			:paused="paused"
+			v-if="cameraActive"
+			@camera-on="onCameraOn"
+			@camera-off="onCameraOff"
+		>
 			<div class="scan-overlay"></div>
 		</qrcode-stream>
 
 		<div v-if="error" class="error">
 			{{ error }}
 		</div>
-		<button class="start-button" @click="initCamera">Включить камеру</button>
+
+		<button
+			class="duration-button"
+			:class="{ active: cameraActive }"
+			@click="toggleCamera"
+		>
+			{{ cameraActive ? 'Выключить камеру' : 'Включить камеру' }}
+		</button>
+
+		<div v-if="result" class="result">
+			Найден код: {{ result }}
+			<button @click="resetScanner">Сканировать ещё</button>
+		</div>
 	</div>
 </template>
 
@@ -18,37 +36,69 @@ export default {
 	components: { QrcodeStream },
 	data() {
 		return {
-			hasCameraAccess: false,
+			cameraActive: false,
 			paused: false,
 			result: null,
 			error: null,
+			mediaStream: null, // Храним ссылку на поток камеры
 		}
 	},
 	methods: {
-		async initCamera() {
-			try {
-				// Проверка поддержки камеры
-				const devices = await navigator.mediaDevices.enumerateDevices()
-				const hasCamera = devices.some(device => device.kind === 'videoinput')
-
-				if (!hasCamera) {
-					throw new Error('Камера не найдена')
-				}
-
-				// Запрос разрешения
-				await navigator.mediaDevices.getUserMedia({ video: true })
-				this.hasCameraAccess = true
-			} catch (err) {
-				this.error = this.getErrorMessage(err)
+		async toggleCamera() {
+			if (this.cameraActive) {
+				await this.stopCamera()
+			} else {
+				await this.startCamera()
 			}
 		},
 
+		async startCamera() {
+			try {
+				// Останавливаем предыдущий поток, если есть
+				if (this.mediaStream) {
+					this.stopCamera()
+				}
+
+				// Запрашиваем доступ к камере
+				this.mediaStream = await navigator.mediaDevices.getUserMedia({
+					video: {
+						facingMode: 'environment',
+						width: { ideal: 1280 },
+					},
+				})
+
+				this.cameraActive = true
+				this.paused = false
+				this.error = null
+			} catch (err) {
+				this.error = this.getErrorMessage(err)
+				console.error('Camera error:', err)
+			}
+		},
+
+		async stopCamera() {
+			if (this.mediaStream) {
+				// Останавливаем все треки
+				this.mediaStream.getTracks().forEach(track => track.stop())
+				this.mediaStream = null
+			}
+			this.cameraActive = false
+			this.paused = true
+		},
+
+		onCameraOn() {
+			console.log('Камера включена')
+		},
+
+		onCameraOff() {
+			console.log('Камера выключена')
+		},
+
 		onDetect(detectedCodes) {
-			const qrCodeInfo = detectedCodes[0].rawValue
 			if (detectedCodes.length > 0) {
 				this.result = detectedCodes[0].rawValue
 				this.paused = true
-				console.log(qrCodeInfo, typeof qrCodeInfo)
+				console.log('Распознано:', this.result)
 			}
 		},
 
@@ -63,6 +113,11 @@ export default {
 			}
 			return 'Ошибка: ' + error.message
 		},
+	},
+
+	beforeUnmount() {
+		// Очищаем ресурсы при уничтожении компонента
+		this.stopCamera()
 	},
 }
 </script>
