@@ -12,7 +12,7 @@
 				<li
 					class="panelMenu_block_li"
 					id="panelMenu_block_li_1"
-					@click="navigate('MainPart')"
+					@click="navigate('QrDecoder')"
 				>
 					Главная
 				</li>

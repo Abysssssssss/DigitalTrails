@@ -9,13 +9,13 @@ import SettingsPart from './components/SettingsPart.vue'
 import AboutPart from './components/AboutPart.vue'
 
 const components = markRaw({
-	MainPart,
+	QrDecoder,
 	HistoryPart,
 	AboutPart,
 	SettingsPart,
 })
 
-const activeComponent = shallowRef(components.MainPart)
+const activeComponent = shallowRef(components.QrDecoder)
 </script>
 
 <template>
