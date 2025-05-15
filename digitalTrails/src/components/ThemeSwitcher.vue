@@ -20,8 +20,14 @@ export default {
 
 		if (savedTheme) {
 			this.theme = savedTheme
-			this.setTheme(savedTheme)
+		} else {
+			const prefersDark = window.matchMedia(
+				'(prefers-color-scheme: dark)'
+			).matches
+			this.theme = prefersDark ? 'dark' : 'light'
 		}
+
+		this.setTheme(this.theme)
 	},
 
 	methods: {
