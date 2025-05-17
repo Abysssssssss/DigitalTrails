@@ -19,7 +19,7 @@
 				<li class="panelMenu_block_li" @click="navigate('HistoryPart')">
 					Пути
 				</li>
-				<li class="panelMenu_block_li" @click="navigate('AboutPart')">
+				<li class="panelMenu_block_li" @click="navigate('MainPart')">
 					О парке
 				</li>
 				<li

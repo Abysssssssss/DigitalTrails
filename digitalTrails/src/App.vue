@@ -13,6 +13,7 @@ const components = markRaw({
 	HistoryPart,
 	AboutPart,
 	SettingsPart,
+	MainPart
 })
 
 const activeComponent = shallowRef(components.QrDecoder)
@@ -32,6 +33,7 @@ const activeComponent = shallowRef(components.QrDecoder)
 			@navigate="componentName => (activeComponent = components[componentName])"
 		/>
 	</footer>
+
 </template>
 
 <script></script>
