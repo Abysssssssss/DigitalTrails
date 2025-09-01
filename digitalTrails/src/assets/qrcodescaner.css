@@ -1,0 +1,56 @@
+/* qrcodescaner.css */
+.qr-scanner {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.scan-overlay {
+    position: absolute;
+    width: 80%;
+    height: 400px;
+    border: 3px solid #4caf50;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.error {
+    color: red;
+    margin: 20px 0;
+}
+
+.camera-button {
+    padding: 15px 30px;
+    background: #17831a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    width: 200px;
+}
+
+.camera-button.active {
+    background: rgb(165, 0, 0);
+}
+
+.instruction {
+    margin: 25px 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #ff0000;
+    letter-spacing: 0.5px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.camera-status {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #0088ff;
+}
