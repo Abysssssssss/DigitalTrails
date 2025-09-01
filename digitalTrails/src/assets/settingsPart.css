@@ -1,0 +1,54 @@
+.settingsPart_field {
+	width: 100%;
+	padding: 10px 0px 10px 0px;
+	background-color: var(--field-color);
+	margin-bottom: 10px;
+	border-radius: 15px;
+	display: flex;
+	align-items: center;
+	align-content: center;
+}
+
+.settingsPart_filed_images {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	align-content: center;
+	right: 0;
+	height: var(--base_style_img-size);
+}
+
+#settingsPart_field_textArea {
+	margin-left: 10px;
+	align-items: center;
+	align-content: center;
+	background-color: var(--field-color);
+}
+
+#settingsPart_img {
+	color: var(--text-color);
+}
+
+#settingsPart_field_p {
+	margin-left: 5%;
+	font-size: 16px;
+	font-weight: 500;
+	font-family: var(--text-font-family);
+	color: var(--text-color);
+}
+
+.settingsPart_switch_block {
+	margin-right: 3%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#settingsPart_button_exit {
+	width: 100%;
+	margin-top: 20px;
+	padding: 10px;
+	background-color: var(--error-color);
+	border-radius: 10px;
+	align-items: center;
+}
